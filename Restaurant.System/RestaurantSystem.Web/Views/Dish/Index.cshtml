@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+</style>
+<div class="panel-title">
+    <h4>Pratos</h4>
+</div>
+<div class="panel-body" ng-app="restaurantSystem" ng-controller="dishListController">
+    <div class="alert-danger hidden">{{messages}}</div>
+    <div class="panel-default">
+        <fieldset>
+            <legend>Filtros</legend>
+            <form novalidate>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Nome:</label>
+                    <input type="text" class="form-control" name="searchName" ng-model="name" />
+                </div>
+                <div class="form-group col-md-12">
+                    <button class="btn-search" ng-click="searchRestaurant()"><i class="fas fa-search"></i> Pesquisar</button>
+                    <button class="btn-new" onclick="location.href='/Dish/Create'"><i class="fas fa-plus"></i> Cadastrar novo Prato</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="panel-default contant-table scroll-y">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Restaurante</th>
+                <th>Prato</th>
+                <th>Preço</th>
+            </tr>
+            <tr ng-repeat="dish in dishes">
+                <td><i class="fas fa-minus"></i></td>
+                <td><i class="fas fa-pencil-alt"></i></td>
+                <td>{{dish.Restaurant.Name}}</td>
+                <td>{{dish.Name}}</td>
+                <td>{{dish.Value}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/site.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/AngularApp/js/restaurantSystem.js"></script>
+    <script src="~/AngularApp/js/dish/listController.js"></script>
+}

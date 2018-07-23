@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+</style>
+<div class="panel-title">
+    <h4>Cadastro de Pratos</h4>
+</div>
+<div class="panel-body" ng-app="restaurantSystem" ng-controller="dishCreateController">
+    <div class="alert-danger hidden">{{messages}}</div>
+    <div class="panel-default">
+        <fieldset>
+            <legend>Dados</legend>
+            <form novalidate>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Restaurante:</label>
+                    <select class="form-control" ng-model="restaurantId">
+                        <option ng-repeat="restaurant in restaurants | orderBy:'Name'" value="{{restaurant.Id}}">{{restaurant.Name}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Prato:</label>
+                    <input type="text" class="form-control" name="searchName" ng-model="name" />
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Preço (R$):</label>
+                    <input type="text" class="form-control" name="searchName" ng-model="value" />
+                </div>
+                <div class="form-group col-md-12">
+                    <button class="btn-cancel" onclick="location.href='/Dish'"><i class="fas fa-reply"></i> Cancelar</button>
+                    <button class="btn-new" ng-click="createDish()"><i class="fas fa-save"></i> Salvar</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/AngularApp/js/restaurantSystem.js"></script>
+    <script src="~/AngularApp/js/dish/createController.js"></script>
+}
+
