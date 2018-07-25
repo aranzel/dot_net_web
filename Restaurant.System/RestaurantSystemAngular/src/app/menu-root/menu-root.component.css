@@ -1,0 +1,28 @@
+div.navbar-fixed-top {
+    background-color: white;
+    border: none;
+    margin-top: 15px;
+}
+    div.navbar-fixed-top div.container {
+        border: 2px solid black;
+    }
+    div.navbar-fixed-top ul.nav > li {
+        float: left;
+    }
+    div.navbar-fixed-top ul.nav > li > a {
+        color: black;
+        font-weight: bold;
+    }
+div.body-content {
+    margin-top: 15px;
+}
+div.panel-title {
+    padding-top: 15px;
+}
+div.panel-body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+div.panel-body > div {
+    margin-top: 20px;
+}
