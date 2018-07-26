@@ -28,7 +28,7 @@ export class RestaurantService {
             { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') });
     }
     edit(id: number, restaurant: Restaurant) {
-        return this.http.put(API_URL + '/api/Restaurant/' + id, { "Id": restaurant.Id, "Name": restaurant.Name },
+        return this.http.put(API_URL + '/api/Restaurant/' + id, JSON.stringify(restaurant),
             { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') });
     }
     delete(id: number) {

@@ -22,9 +22,11 @@ const appRoutes: Routes = [
   { path: 'restaurant', component: RestaurantComponent },
   { path: 'restaurant/create', component: EditRestaurantComponent },
   { path: 'restaurant/edit/:id', component: EditRestaurantComponent },
+  { path: 'restaurant/delete/:id', component: RestaurantComponent },
   { path: 'dish', component: DishComponent },
   { path: 'dish/create', component: EditDishComponent },
-  { path: 'dish/edit/:id', component: EditDishComponent }
+  { path: 'dish/edit/:id', component: EditDishComponent },
+  { path: '**', component: HomeComponent }
 ]
 @NgModule({
   declarations: [

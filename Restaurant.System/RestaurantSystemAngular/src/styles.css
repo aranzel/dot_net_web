@@ -87,11 +87,11 @@ div.panel-title > h4 {
         text-align: center;
         font-size: 17px;
     }
-    .table td:nth-child(1) {
-        color: #C35659;
+    .table td:nth-child(1) a {
+        color: #C35659 !important;
     }
-    .table td:nth-child(2) {
-        color: #224362;
+    .table td:nth-child(2) a {
+        color: #224362 !important;
     }
 
 /* Scroll */
