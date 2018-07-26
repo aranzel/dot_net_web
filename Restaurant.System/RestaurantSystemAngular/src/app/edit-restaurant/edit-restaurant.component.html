@@ -8,8 +8,8 @@
           <form (submit)="save()">
               <div class="form-group col-md-12">
                   <label class="control-label col-md-12">Nome do Restaurante:</label>
-                  <input type="hidden" class="form-control" name="id" [(ngModel)]="restaurant.Id" value="{{restaurant.Id}}"/>
-                  <input type="text" class="form-control" name="name" [(ngModel)]="restaurant.Name" value="{{restaurant.Name}}" />
+                  <input type="hidden" class="form-control" name="id" [(ngModel)]="restaurant.Id" />
+                  <input type="text" class="form-control" name="name" [(ngModel)]="restaurant.Name" />
               </div>
               <div class="form-group col-md-12">
                   <button class="btn-cancel" type="button" onclick="location.href='/restaurant'"><i class="fas fa-reply"></i> Cancelar</button>

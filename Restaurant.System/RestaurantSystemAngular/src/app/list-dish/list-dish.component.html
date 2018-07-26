@@ -1,0 +1,19 @@
+<div class="panel-default contant-table scroll-y">
+  <table *ngIf="dishes.length > 0" class="table">
+      <tr>
+          <th></th>
+          <th></th>
+          <th>Restaurante</th>
+          <th>Prato</th>
+          <th>Preço</th>
+      </tr>
+      <tr *ngFor="let dish of dishes">
+          <td><i class="fas fa-minus"></i></td>
+          <td><i class="fas fa-pencil-alt"></i></td>
+          <td>{{dish.Restaurant.Name}}</td>
+          <td>{{dish.Name}}</td>
+          <td>{{dish.Value}}</td>
+      </tr>
+  </table>
+  <div *ngIf="dishes.length <= 0" class='border-default'><label>Não tem pratos cadastrados</label></div>
+</div>

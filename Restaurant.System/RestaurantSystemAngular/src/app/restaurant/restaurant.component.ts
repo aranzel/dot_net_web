@@ -8,14 +8,22 @@ import { RestaurantService } from '../restaurant.service';
   styleUrls: ['./restaurant.component.css']
 })
 export class RestaurantComponent implements OnInit {
-  restaurants: Restaurant[] = [];
+  searchName: string;
+  restaurants: Array<Restaurant> = [];
 
   constructor(
     private service: RestaurantService
   ) { }
 
   ngOnInit() {
-    this.restaurants = this.service.getRestaurants();
+    this.service.getRestaurant().subscribe((data: Array<Restaurant>) => {
+      this.restaurants = data;
+    });
   }
 
+  search() {
+    this.service.getRestaurantByName(this.searchName).subscribe((data: Array<Restaurant>) => {
+      this.restaurants = data;
+    });
+  }
 }

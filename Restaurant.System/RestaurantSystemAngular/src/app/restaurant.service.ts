@@ -1,20 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Restaurant } from './models/restaurant';
+
+const API_URL = 'http://localhost:7317';
 
 @Injectable()
 export class RestaurantService {
-    getRestaurants(): Restaurant[] {
-        let restaurants: Restaurant[] = [];
 
-        let restaurant1 = new Restaurant();
-        restaurant1.Id = 1;
-        restaurant1.Name = 'r1 tia';
-        restaurants.push(restaurant1);
-        let restaurant2 = new Restaurant();
-        restaurant2.Id = 2;
-        restaurant2.Name = 'esquina';
-        restaurants.push(restaurant2);
+    constructor(
+        private http: HttpClient
+    ) { }
 
-        return restaurants;
+    getRestaurant() {
+        return this.http.get(API_URL + '/api/Restaurant');
+    }
+    getRestaurantByName(name: string) {
+        if (name != undefined && name != '')
+            return this.http.get(API_URL + '/api/Restaurant/SearchByName/?name=' + name);
+        else 
+            return this.getRestaurant();
+    }
+    getRestaurantById(id: number) {
+        return this.http.get(API_URL + '/api/Restaurant/' + id);
+    }
+    create(restaurant: Restaurant) {
+        return this.http.post(API_URL + '/api/Restaurant', { "Id": restaurant.Id, "Name": restaurant.Name },
+            { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') });
+    }
+    edit(id: number, restaurant: Restaurant) {
+        return this.http.put(API_URL + '/api/Restaurant/' + id, { "Id": restaurant.Id, "Name": restaurant.Name },
+            { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') });
+    }
+    delete(id: number) {
+        return this.http.delete(API_URL + '/api/Restaurant/' + id);
     }
 }

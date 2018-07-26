@@ -7,7 +7,7 @@
         </tr>
         <tr *ngFor="let restaurant of restaurants">
             <td><i class="fas fa-minus"></i></td>
-            <td><i class="fas fa-pencil-alt"></i></td>
+            <td><a (click)="edit({{restaurant.Id}})"><i class="fas fa-pencil-alt"></i></a></td>
             <td>{{restaurant.Name}}</td>
         </tr>
     </table>
