@@ -1,3 +1,21 @@
-<p>
-  edit-restaurant works!
-</p>
+<div class="panel-title">
+  <h4>Cadastro de Restaurante</h4>
+</div>
+<div class="panel-body" ng-app="restaurantSystem" ng-controller="restaurantCreateController">
+  <div class="panel-default">
+      <fieldset>
+          <legend>Dados</legend>
+          <form (submit)="save()">
+              <div class="form-group col-md-12">
+                  <label class="control-label col-md-12">Nome do Restaurante:</label>
+                  <input type="hidden" class="form-control" name="id" [(ngModel)]="restaurant.Id" value="{{restaurant.Id}}"/>
+                  <input type="text" class="form-control" name="name" [(ngModel)]="restaurant.Name" value="{{restaurant.Name}}" />
+              </div>
+              <div class="form-group col-md-12">
+                  <button class="btn-cancel" type="button" onclick="location.href='/restaurant'"><i class="fas fa-reply"></i> Cancelar</button>
+                  <button class="btn-new" type="submit"><i class="fas fa-save"></i> Salvar</button>
+              </div>
+          </form>
+      </fieldset>
+  </div>
+</div>

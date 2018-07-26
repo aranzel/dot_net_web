@@ -1,0 +1,21 @@
+<div class="panel-title">
+  <h4>Restaurantes</h4>
+</div>
+<div class="panel-body" ng-app="restaurantSystem" ng-controller="restaurantListController">
+  <div class="panel-default">
+      <fieldset>
+          <legend>Filtros</legend>
+          <form novalidate>
+              <div class="form-group col-md-12">
+                  <label class="control-label col-md-12">Nome:</label>
+                  <input type="text" class="form-control" name="searchName" ng-model="name" />
+              </div>
+              <div class="form-group col-md-12">
+                  <button class="btn-search" ng-click="searchRestaurant()"><i class="fas fa-search"></i> Pesquisar</button> 
+                  <button class="btn-new" onclick="location.href='/restaurant/create'" ><i class="fas fa-plus"></i> Cadastrar novo Restaurante</button>
+              </div>
+          </form>
+      </fieldset>
+  </div>
+  <rsApp-list-restaurant [restaurants]="restaurants"></rsApp-list-restaurant>
+</div>

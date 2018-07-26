@@ -4,6 +4,7 @@
 body {
     padding-top: 0;
     padding-bottom: 20px;
+    font-size: 12px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,10 +25,17 @@ div.panel-title > h4 {
     text-transform: uppercase;
 }
 
+.border-default {
+    border: 2px solid black;
+    margin-top: 15px;
+    padding: 25px;
+}
+
 /* Button */
 .btn-search, .btn-new, .btn-cancel {
     color: #ffffff;
     border: 2px solid black;
+    margin-right: 15px;
 }
     .btn-search {
         background-color: #055497;
@@ -40,48 +48,51 @@ div.panel-title > h4 {
     }
 
 /* Tables */
-.table, th, td {
-    border-collapse: collapse;
-    padding: 5px;
+.table {
+    margin-top: 25px;
 }
-.table tr:first-child {
-    border-top: 2px solid black;
-}
-.table th, table td {
-    border-left: 2px solid black;
-}
-.table th:last-child, table td:last-child {
-    border-right: 2px solid black;
-}
-.table tr:last-child {
-    border-bottom: 2px solid black;
-}
+    .table, th, td {
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    .table tr:first-child {
+        border-top: 2px solid black;
+    }
+    .table th, table td {
+        border-left: 2px solid black;
+    }
+    .table th:last-child, table td:last-child {
+        border-right: 2px solid black;
+    }
+    .table tr:last-child {
+        border-bottom: 2px solid black;
+    }
 
-.table tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-.table tr:nth-child(even) {
-    background-color: #f1f1f1;
-}
-.table tr:hover {
-    background-color: #e1e1e1;
-    font-weight: bold;
-}
-.table th {
-    background-color: #CCCCCC;
-}
+    .table tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+    .table tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
+    .table tr:hover {
+        background-color: #e1e1e1;
+        font-weight: bold;
+    }
+    .table th {
+        background-color: #CCCCCC;
+    }
 
-.table td:nth-child(1), .table td:nth-child(2) {
-    width: 50px;
-    text-align: center;
-    font-size: 17px;
-}
-.table td:nth-child(1) {
-    color: #C35659;
-}
-.table td:nth-child(2) {
-    color: #224362;
-}
+    .table td:nth-child(1), .table td:nth-child(2) {
+        width: 50px;
+        text-align: center;
+        font-size: 17px;
+    }
+    .table td:nth-child(1) {
+        color: #C35659;
+    }
+    .table td:nth-child(2) {
+        color: #224362;
+    }
 
 /* Scroll */
 .scroll-x {

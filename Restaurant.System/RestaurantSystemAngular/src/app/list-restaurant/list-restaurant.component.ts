@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Restaurant } from '../models/restaurant';
 
 @Component({
   selector: 'rsApp-list-restaurant',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-restaurant.component.css']
 })
 export class ListRestaurantComponent implements OnInit {
+  @Input() restaurants: Restaurant[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

@@ -6,6 +6,10 @@ div.navbar-fixed-top {
     div.navbar-fixed-top div.container {
         border: 2px solid black;
     }
+    div.navbar-fixed-top ul.nav {
+        height: 51px;
+        font-size: 16px;
+    }
     div.navbar-fixed-top ul.nav > li {
         float: left;
     }
