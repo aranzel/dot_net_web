@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Net.Http.Formatting;
 
 namespace RestaurantSystem.Api.Controllers
 {
@@ -19,21 +20,19 @@ namespace RestaurantSystem.Api.Controllers
             _repository = new RepositoryBase<TEntity, TKey>();
         }
 
-        // GET api/<controller>
         public IEnumerable<TEntity> Get()
         {
             return _repository.Get();
         }
 
-        // GET api/<controller>/5
         public TEntity Get(TKey id)
         {
             return _repository.Get(id);
         }
-
-        // POST api/<controller>
-        public TEntity Post([FromBody]TEntity entity)
+        
+        public TEntity Post(FormDataCollection form)
         {
+            TEntity entity = Serialize(form);
             if (ModelState.IsValid)
             {
                 _repository.Add(entity);
@@ -45,9 +44,10 @@ namespace RestaurantSystem.Api.Controllers
             return entity;
         }
 
-        // PUT api/<controller>/5
-        public TEntity Put(TKey id, [FromBody]TEntity entity)
+        [HttpPut]
+        public TEntity Update([FromUri]TKey id, FormDataCollection form)
         {
+            TEntity entity = Serialize(form);
             if (ModelState.IsValid)
             {
                 entity.Id = id;
@@ -60,10 +60,10 @@ namespace RestaurantSystem.Api.Controllers
             return entity;
         }
 
-        // DELETE api/<controller>/5
-        public IHttpActionResult Delete(TKey id)
+        [HttpGet]
+        public IHttpActionResult Delete([FromUri]TKey entityId)
         {
-            var entity = _repository.Get(id);
+            var entity = _repository.Get(entityId);
             if (entity == null)
             {
                 return NotFound();
@@ -86,5 +86,18 @@ namespace RestaurantSystem.Api.Controllers
             });
         }
 
+        protected virtual TEntity Serialize(FormDataCollection form)
+        {
+            try
+            {
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<TEntity>(form["entity"]);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("entity", $"Erro ao tentar desserializar o entidade: {ex.ToString()}");
+            }
+            return null;
+        }
+        
     }
 }

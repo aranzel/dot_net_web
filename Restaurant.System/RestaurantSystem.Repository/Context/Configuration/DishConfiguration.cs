@@ -10,7 +10,7 @@ namespace RestaurantSystem.Repository.Context.Configuration
             this.HasRequired(d => d.Restaurant)
                 .WithMany(r => r.Dishes)
                 .HasForeignKey(d => d.RestaurantId)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
         }
     }
 }

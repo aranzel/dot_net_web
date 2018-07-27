@@ -1,15 +1,19 @@
 <div class="panel-title">
   <h4>Pratos</h4>
 </div>
-<div class="panel-body" ng-app="restaurantSystem" ng-controller="restaurantListController">
+<div class="panel-body">
   <div class="panel-default">
       <fieldset>
           <legend>Filtros</legend>
           <form (submit)="search()">
-              <div class="form-group col-md-12">
-                  <label class="control-label col-md-12">Nome:</label>
-                  <input type="text" class="form-control" name="searchName" [(ngModel)]="searchName" />
+              <div class="form-group col-md-6">
+                  <label class="control-label col-md-12">Restaurante:</label>
+                  <input type="text" class="form-control" name="searchRestaurant" [(ngModel)]="searchRestaurant" />
               </div>
+              <div class="form-group col-md-6">
+                    <label class="control-label col-md-12">Prato:</label>
+                    <input type="text" class="form-control" name="searchDish" [(ngModel)]="searchDish" />
+                </div>
               <div class="form-group col-md-12">
                   <button class="btn-search" type="submit"><i class="fas fa-search"></i> Pesquisar</button> 
                   <button class="btn-new" type="button" onclick="location.href='/dish/create'" ><i class="fas fa-plus"></i> Cadastrar novo Prato</button>

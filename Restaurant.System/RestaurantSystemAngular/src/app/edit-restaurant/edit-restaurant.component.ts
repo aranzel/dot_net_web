@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Restaurant } from '../models/restaurant';
 import { RestaurantService } from '../restaurant.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'rsApp-edit-restaurant',
@@ -27,29 +27,37 @@ export class EditRestaurantComponent implements OnInit {
       this.initialEdit(this.urlId);
     }
   }
+  
   getUrlId() {
     if (this.route.snapshot.params['id'] == null)
       return -1;
     else 
       return this.route.snapshot.params['id'];
   }
+  
   initialCreate() {
     this.restaurant = new Restaurant();
     this.restaurant.Id = -1;
     this.restaurant.Name = "";
   }
+  
   initialEdit(id: number) {
     this.service.getRestaurantById(id).subscribe((data: Restaurant) => {
       this.restaurant = data;
     });
   }
-  
+
   save() {
-    this.service.create(this.restaurant).subscribe((response) => {
-      console.log(response);
-      //this.router.navigate(['/restaurant']);
-    });
+    if (this.urlId == -1) {
+      this.service.createRestaurant(this.restaurant).subscribe((response) => {
+        console.log(response);
+        this.router.navigate(['/restaurant']);
+      });
+    } else {
+      this.service.editRestaurant(this.urlId, this.restaurant).subscribe((response) => {
+        console.log(response);
+        this.router.navigate(['/restaurant']);
+      });
+    }
   }
-
-
 }

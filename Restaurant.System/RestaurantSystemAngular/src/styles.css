@@ -48,8 +48,13 @@ div.panel-title > h4 {
     }
 
 /* Tables */
-.table {
+.contant-table {
+    max-height: 300px;
+    overflow-x: auto;
     margin-top: 25px;
+}
+.table {
+    margin-top: 0;
 }
     .table, th, td {
         border-collapse: collapse;

@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201807210301331_Initial.Designer.cs">
       <DependentUpon>201807210301331_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807270601413_Cascade_true.cs" />
+    <Compile Include="Migrations\201807270601413_Cascade_true.Designer.cs">
+      <DependentUpon>201807270601413_Cascade_true.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Base.cs" />
@@ -74,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807210301331_Initial.resx">
       <DependentUpon>201807210301331_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807270601413_Cascade_true.resx">
+      <DependentUpon>201807270601413_Cascade_true.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

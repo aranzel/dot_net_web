@@ -8,11 +8,11 @@
           <th>Preço</th>
       </tr>
       <tr *ngFor="let dish of dishes">
-          <td><i class="fas fa-minus"></i></td>
-          <td><i class="fas fa-pencil-alt"></i></td>
+          <td><a (click)="delete(dish.Id)"><i class="fas fa-minus"></i></a></td>
+          <td><a [routerLink]="['/dish/edit', dish.Id]"><i class="fas fa-pencil-alt"></i></a></td>
           <td>{{dish.Restaurant.Name}}</td>
           <td>{{dish.Name}}</td>
-          <td>{{dish.Value}}</td>
+          <td>{{dish.Value}}</td><!-- {{Number(dish.Value).toLocaleString('pt-BR')}} -->
       </tr>
   </table>
   <div *ngIf="dishes.length <= 0" class='border-default'><label>Não tem pratos cadastrados</label></div>

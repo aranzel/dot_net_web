@@ -19,28 +19,21 @@ export class RestaurantComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.urlId = this.getUrlId();
-    if (this.urlId > 0)
-      delete(this.urlId)
-
     this.service.getRestaurant().subscribe((data: Array<Restaurant>) => {
       this.restaurants = data;
     });
   }
+
   getUrlId() {
     if (this.route.snapshot.params['id'] == null)
       return -1;
     else 
       return this.route.snapshot.params['id'];
   }
+
   search() {
     this.service.getRestaurantByName(this.searchName).subscribe((data: Array<Restaurant>) => {
       this.restaurants = data;
-    });
-  }
-  delete(id) {
-    this.service.delete(id).subscribe((response) => {
-      console.log(response);
     });
   }
 }

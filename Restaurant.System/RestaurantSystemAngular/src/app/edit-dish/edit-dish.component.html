@@ -1,3 +1,30 @@
-<p>
-  edit-dish works!
-</p>
+<div class="panel-title">
+    <h4>Cadastro de Pratos</h4>
+</div>
+<div class="panel-body">
+    <div class="panel-default">
+        <fieldset>
+            <legend>Dados</legend>
+            <form (submit)="save()">
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Restaurante:</label>
+                    <select class="form-control col-md-8" name="restaurantId" [(ngModel)]="dish.RestaurantId">
+                        <option *ngFor="let restaurant of restaurants" value="{{restaurant.Id}}">{{restaurant.Name}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Prato:</label>
+                    <input type="text" class="form-control col-md-8" name="name" [(ngModel)]="dish.Name" />
+                </div>
+                <div class="form-group col-md-12">
+                    <label class="control-label col-md-12">Preço (R$):</label>
+                    <input type="text" class="form-control col-md-2" name="value" [(ngModel)]="value" />
+                </div>
+                <div class="form-group col-md-12">
+                    <button class="btn-cancel" type="button" onclick="location.href='/dish'"><i class="fas fa-reply"></i> Cancelar</button>
+                    <button class="btn-new" type="submit"><i class="fas fa-save"></i> Salvar</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>

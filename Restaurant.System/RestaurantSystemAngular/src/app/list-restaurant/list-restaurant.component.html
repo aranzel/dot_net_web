@@ -6,10 +6,12 @@
             <th>Restaurantes</th>
         </tr>
         <tr *ngFor="let restaurant of restaurants">
-            <td><a [routerLink]="['/restaurant/delete', restaurant.Id]"><i class="fas fa-minus"></i></a></td>
+            <td><a (click)="delete(restaurant.Id)"><i class="fas fa-minus"></i></a></td>
             <td><a [routerLink]="['/restaurant/edit', restaurant.Id]"><i class="fas fa-pencil-alt"></i></a></td>
             <td>{{restaurant.Name}}</td>
         </tr>
     </table>
-    <div *ngIf="restaurants.length <= 0" class='border-default'><label>Não tem restaurantes cadastrados</label></div>
+    <div *ngIf="restaurants.length <= 0" class='border-default'>
+        <label>Não tem restaurantes cadastrados</label>
+    </div>
 </div>

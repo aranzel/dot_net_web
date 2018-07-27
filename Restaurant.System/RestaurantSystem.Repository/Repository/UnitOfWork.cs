@@ -50,6 +50,22 @@ namespace RestaurantSystem.Repository.Repository
         public List<Dish> DishList()
         {
             List<Dish> lstDish = _context.Dish.ToList();
+            return PrepareDish(lstDish);
+        }
+
+        public List<Dish> DishList(string restaurant, string dish)
+        {
+            IQueryable<Dish> query = _context.Dish.AsQueryable();
+            if (!string.IsNullOrEmpty(restaurant))
+                query = query.Where(d => d.Restaurant.Name.Contains(restaurant));
+            if (!string.IsNullOrEmpty(dish))
+                query = query.Where(d => d.Name.Contains(dish));
+            List<Dish> lstDish = query.ToList();
+            return PrepareDish(lstDish);
+        }
+
+        private List<Dish> PrepareDish(List<Dish> lstDish)
+        {
             lstDish.ForEach(d => _context.Entry(d).Reference(r => r.Restaurant).Load());
             lstDish.ForEach(d => d.Restaurant?.Dishes.Clear());
             return lstDish;

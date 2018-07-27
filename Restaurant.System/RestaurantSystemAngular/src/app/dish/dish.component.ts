@@ -8,6 +8,9 @@ import { RestaurantService } from '../restaurant.service';
   styleUrls: ['./dish.component.css']
 })
 export class DishComponent implements OnInit {
+
+  searchRestaurant: string;
+  searchDish: string;
   dishes: Array<Dish> = [];
 
   constructor(
@@ -15,9 +18,15 @@ export class DishComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.service.getRestaurant().subscribe((data: Array<Dish>) => {
+    this.service.getDish().subscribe((data: Array<Dish>) => {
       this.dishes = data;
     });
   }
 
+  search() {
+    this.service.getDishBy(this.searchRestaurant, this.searchDish).subscribe((data: Array<Dish>) => {
+      this.dishes = data;
+    });
+  }
+  
 }
