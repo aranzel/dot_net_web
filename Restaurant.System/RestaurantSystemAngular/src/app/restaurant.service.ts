@@ -41,6 +41,7 @@ export class RestaurantService {
 
     editRestaurant(id: number, restaurant: Restaurant) {
         const body = this.createBody(restaurant);
+        body.set('id', id.toString());
         return this.http.post(API_URL + '/api/Restaurant/Update/?id=' + id, body,
             { headers: this.httpHeaders });
     }
@@ -74,6 +75,7 @@ export class RestaurantService {
 
     editDish(id: number, dish: Dish) {
         const body = this.createBody(dish);
+        
         return this.http.post(API_URL + '/api/Dish/Update/?id=' + id, body,
             { headers: this.httpHeaders });
     }

@@ -44,7 +44,7 @@ namespace RestaurantSystem.Api.Controllers
             return entity;
         }
 
-        [HttpPut]
+        [HttpPost]
         public TEntity Update([FromUri]TKey id, FormDataCollection form)
         {
             TEntity entity = Serialize(form);
