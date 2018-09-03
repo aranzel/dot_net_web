@@ -8,11 +8,11 @@
           <form (submit)="search()">
               <div class="form-group col-md-6">
                   <label class="control-label col-md-12">Restaurante:</label>
-                  <input type="text" class="form-control" name="searchRestaurant" [(ngModel)]="searchRestaurant" />
+                  <input type="text" class="form-control" name="searchRestaurant" [(ngModel)]="searchRestaurant" value="" />
               </div>
               <div class="form-group col-md-6">
                     <label class="control-label col-md-12">Prato:</label>
-                    <input type="text" class="form-control" name="searchDish" [(ngModel)]="searchDish" />
+                    <input type="text" class="form-control" name="searchDish" [(ngModel)]="searchDish" value="" />
                 </div>
               <div class="form-group col-md-12">
                   <button class="btn-search" type="submit"><i class="fas fa-search"></i> Pesquisar</button> 

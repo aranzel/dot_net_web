@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Dish } from '../models/dish';
 import { RestaurantService } from '../restaurant.service';
+import { DishComponent } from '../dish/dish.component';
 
 @Component({
   selector: 'rsApp-list-dish',
@@ -13,7 +14,8 @@ export class ListDishComponent implements OnInit {
 
   constructor(
     private service: RestaurantService,
-    private router: Router
+    private router: Router,
+    private dishComponent: DishComponent
   ) { }
 
   ngOnInit() {
@@ -22,7 +24,7 @@ export class ListDishComponent implements OnInit {
   delete(id) {
     this.service.deleteDish(id).subscribe((response) => {
       console.log(response);
-      this.router.navigate(['/dish']);
+      this.dishComponent.search();
     });
   }
 }

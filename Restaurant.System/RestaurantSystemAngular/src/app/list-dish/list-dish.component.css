@@ -1,0 +1,4 @@
+.table tr th:nth-child(3),
+.table tr th:nth-child(4) {
+    width: 40%;
+}

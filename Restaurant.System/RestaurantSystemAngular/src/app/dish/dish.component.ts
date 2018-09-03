@@ -9,8 +9,8 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class DishComponent implements OnInit {
 
-  searchRestaurant: string;
-  searchDish: string;
+  searchRestaurant: string = '';
+  searchDish: string = '';
   dishes: Array<Dish> = [];
 
   constructor(

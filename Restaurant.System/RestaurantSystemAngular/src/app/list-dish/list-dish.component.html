@@ -8,7 +8,7 @@
           <th>Preço</th>
       </tr>
       <tr *ngFor="let dish of dishes">
-          <td><a (click)="delete(dish.Id)"><i class="fas fa-minus"></i></a></td>
+          <td><a (click)="delete(dish.Id)" href="javascript:void(0)"><i class="fas fa-minus"></i></a></td>
           <td><a [routerLink]="['/dish/edit', dish.Id]"><i class="fas fa-pencil-alt"></i></a></td>
           <td>{{dish.Restaurant.Name}}</td>
           <td>{{dish.Name}}</td>

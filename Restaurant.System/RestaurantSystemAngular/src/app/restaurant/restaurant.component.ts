@@ -10,7 +10,7 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class RestaurantComponent implements OnInit {
   urlId: number = -1;
-  searchName: string;
+  searchName: string = '';
   restaurants: Array<Restaurant> = [];
 
   constructor(
